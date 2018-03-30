@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create(:username => 'chicken', :email => 'chicken@chicken.com')
-User.create(:username => 'katshaze', :email => 'katrinamargaret.hayes@gmail.com')
+User.create(:username => 'chicken', :email => 'chicken@chicken.com', :password => "chicken")
+User.create(:username => 'katshaze', :email => 'katrinamargaret.hayes@gmail.com', :password => "chicken")
+User.create(:username => 'eastcoastlow', :email => 'rob@rob.com', :password => 'rob')
 
 Book.destroy_all
 Book.create(:title => 'Jane Eyre', :author => 'Charlotte Bronte', :link => 'https://www.goodreads.com/book/show/10210.Jane_Eyre')

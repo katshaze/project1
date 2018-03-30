@@ -13,4 +13,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :readings
+
+  validates :email, :presence => true, :uniqueness => true # this means that it will treat blank email as an error
+  validates :username, :presence => true, :uniqueness => true
 end
