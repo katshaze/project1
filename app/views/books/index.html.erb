@@ -1,2 +1,23 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="flex-column">
+  <h1>All Books</h1>
+
+  <div class="gallery">
+    <% @books.each do |book| %>
+      <% if book.image.present? %>
+        <a href="/books/<%= book.id %>" title="<%= book.title %>">
+          <div class="thumb-box">
+            <%= image_tag book.image, :alt => book.title, :class => 'thumb' %>
+            <!-- the bit at the end gets the title to pop up on hover -->
+          </div>
+        </a>
+
+      <% else %>
+        <a href="/books/<%= book.id %>" title="<%= book.title %>"><div class="empty-thumb"><%= book.title %></div></a>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="">
+    <h3><%= link_to 'Add a book to the database', new_book_path %></h3>
+  </div>
+</div>

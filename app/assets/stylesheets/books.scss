@@ -1,3 +1,106 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  border: 1px solid orange;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  color: black;
+  height: 100vh;
+  display: flex;
+}
+
+.side-panel {
+  width: 23%;
+  height: 100vh;
+  background-color: rgba(230,18,39,0.85);
+  color: white;
+  font-family: monospace;
+  padding: 15px;
+  font-size: 22px;
+}
+
+.major-panel {
+  width: 79%;
+  height: 100vh;
+  background-color: rgba(128,168,215,1);
+  color: black;
+  padding: 15px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0;
+  height: 100vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+nav a {
+  font: Monospace;
+  text-align: right;
+  display: block;
+}
+
+.gallery {
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+.thumb-box {
+  max-height: 15em;
+  margin: 5px;
+  display: inline-flex;
+}
+
+.thumb {
+  max-height: 15em;
+  // display: inline-flex;
+}
+
+.empty-thumb {
+  height: 15em;
+  line-height: 15em;
+  width: 12em;
+  border: 2px solid black;
+  margin: 5px;
+  display: inline-flex;
+}
+
+.left, .right {
+  padding: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.controls, .admin-controls {
+  margin-top: 20px;
+}
+.controls a, .admin-controls a {
+  padding: 5px 10px;
+  border: 2px solid black;
+}

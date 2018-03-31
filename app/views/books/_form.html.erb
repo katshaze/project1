@@ -1,0 +1,12 @@
+<%= form_for @book do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title, :autofocus => true %>
+<%= f.label :author %>
+<%= f.text_field :author %>
+<%= f.label :image, 'Book cover image' %>
+<%= f.url_field :image %>
+<%= f.label :link, 'Goodreads link' %>
+<%= f.url_field :link %>
+
+<%= f.submit %>
+<% end %>
