@@ -11,6 +11,8 @@ class ReadingsController < ApplicationController
   end
 
   def edit
+    @book = Book.find params[:book_id]
+    @reading = @current_user.readings.find params[:id]
   end
 
   def new

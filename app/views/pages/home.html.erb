@@ -4,7 +4,7 @@
   <p>Books you're tracking:</p>
   <% @current_user.readings.each do |reading| %>
     <ul>
-      <li><%= reading.book.title  %></li>
+      <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
     </ul>
   <% end %>
 <% end %>
