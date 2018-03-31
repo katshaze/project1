@@ -1,7 +1,9 @@
 class ReadingsController < ApplicationController
 
   def index
-    @readings = Reading.all.order(:title)
+    # @readings = Reading.all.order(:title)
+    @readings = Reading.all
+    @book = Book.find params[:book_id]
   end
 
   def show
@@ -12,21 +14,21 @@ class ReadingsController < ApplicationController
   end
 
   def new
-
+    @reading = Reading.new
   end
 
   def create
-    @reading = Reading.new
-    @reading.book_id = params[:book_id]
-    @reading.user_id = @current_user
-    raise :hell
-    @reading = Reading.create reading_params
-    redirect_to readings_path
+    @current_user.readings.create :book_id => params[:book_id]
+    redirect_to book_readings_path
+    # redirect_to root_path
   end
 
-  private
-  def reading_params
-    params.require(:reading).permit(:book_id, :user_id)
+  def destroy
   end
+
+  # private
+  # def reading_params
+  #   params.require(:reading).permit(:book_id, :user_id)
+  # end
 
 end

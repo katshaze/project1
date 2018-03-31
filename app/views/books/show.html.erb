@@ -13,7 +13,8 @@
       <% end %>
     </div>
     <div class="controls">
-      <%= link_to 'Add to my books', readings_path(:reading => {:book_id => @book.id}), :method => 'post' %>
+      <%= link_to 'Add to my books', book_readings_path(@book), :method => 'post', :to_read => true %>
+      <%= link_to "Other users' bookshelves with this book", book_readings_path(@book) %>
       <%= link_to 'Back', books_path %>
     </div>
     <div class="admin-controls">

@@ -1,4 +1,10 @@
 <h1>book pinch</h1>
 <% if @current_user.present? %>
-  Welcome back <%= @current_user.username %>
+  <p>Welcome back <%= @current_user.username %></p>
+  <p>Books you're tracking:</p>
+  <% @current_user.readings.each do |reading| %>
+    <ul>
+      <li><%= reading.book.title  %></li>
+    </ul>
+  <% end %>
 <% end %>

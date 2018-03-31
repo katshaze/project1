@@ -1,3 +1,9 @@
-<h1>Book tracker</h1>
+<h1><%= @book.title %></h1>
 
-<%= @current_user.readings %>
+<p>Being tracked by:</p>
+<% @book.readings.each do |reading| %>
+  <ul>
+    <li><%= reading.user.username %></li>
+  </ul>
+<% end %>
+ 

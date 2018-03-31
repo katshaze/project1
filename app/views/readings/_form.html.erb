@@ -1,0 +1,16 @@
+<!-- not currently working. seems to be an issue in that it assumes I want a route like /readings/new rather than bboks/bookid/readings/new -->
+
+<%= form_for @reading do |f| %>
+<%= f.label :to_read, "To read" %>
+<%= f.select :to_read, :autofocus => true, :include_blank => true %>
+<%= f.label :reading %>
+<%= f.select :reading, :include_blank => true %>
+
+<%= f.label :read %>
+<%= f.select :read, :include_blank => true %>
+
+<%= f.label :stars %>
+<%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %>
+
+<%= f.submit %>
+<% end %>
