@@ -1,5 +1,15 @@
-<!-- not currently funcitoning due to partial form not functioning. maybe not needed though anyway. -->
+<h1><%= @book.title %></h1>
 
-<h1>Add to my book tracker</h1>
+<%= form_for [@reading], url: book_readings_path(@book), method: :post do |f| %>
+<%= f.label :to_read %>
+<%= f.check_box :to_read %>
+<%= f.label :reading %>
+<%= f.check_box :reading %>
+<%= f.label :read %>
+<%= f.check_box :read %>
 
-<%= render :partial => 'form' %>
+<%= f.label :stars %>
+<%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %>
+
+<%= f.submit "Add" %>
+<% end %>

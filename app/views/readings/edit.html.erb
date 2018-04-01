@@ -1,15 +1,15 @@
 <h1><%= @reading.book.title %></h1>
 
-<form class="" action="/books/<%= @reading.book.id %>/readings/<%= @reading.id %>" method="put">
-  <label>Status:</label>
-  <select class="" name="">
-    <option value="<%= @reading.to_read = true %>">to read</option>
-    <option value="<%= @reading.reading = true %>">reading</option>
-    <option value="<%= @reading.read = true %>">read</option>
-  </select>
-  <!-- <label>Stars:</label>
-  <select class="" name="">
-    <option value=""></option>
-  </select> -->
-  <button>Update</button>
-</form>
+<%= form_for [@book, @reading], url: book_reading_path(@book), method: :patch do |f| %>
+<%= f.label :to_read %>
+<%= f.check_box :to_read %>
+<%= f.label :reading %>
+<%= f.check_box :reading %>
+<%= f.label :read %>
+<%= f.check_box :read %>
+
+<%= f.label :stars %>
+<%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %>
+
+<%= f.submit "Update" %>
+<% end %>

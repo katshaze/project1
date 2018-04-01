@@ -3,17 +3,16 @@
 
   <div class="gallery">
     <% @books.each do |book| %>
-      <% if book.image.present? %>
+      <div class="thumb-box">
         <a href="/books/<%= book.id %>" title="<%= book.title %>">
-          <div class="thumb-box">
+          <% if book.image.present? %>
             <%= image_tag book.image, :alt => book.title, :class => 'thumb' %>
             <!-- the bit at the end gets the title to pop up on hover -->
-          </div>
+          <% else %>
+            <div class="empty-thumb"><%= book.title %></div>
+          <% end %>
         </a>
-
-      <% else %>
-        <a href="/books/<%= book.id %>" title="<%= book.title %>"><div class="empty-thumb"><%= book.title %></div></a>
-      <% end %>
+      </div>
     <% end %>
   </div>
 

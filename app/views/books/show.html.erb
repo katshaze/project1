@@ -13,13 +13,15 @@
       <% end %>
     </div>
     <div class="controls">
-      <%= link_to 'Add to my books', book_readings_path(@book), :method => 'post', :to_read => true %>
-      <%= link_to "Other users' bookshelves with this book", book_readings_path(@book) %>
-      <%= link_to 'Back', books_path %>
+        <p><%= link_to 'Add to my books', new_book_reading_path(@book), :method => 'get' %></p>
+        <p><%= link_to "Other users' bookshelves with this book", book_readings_path(@book) %></p>
+        <p><%= link_to 'Back', books_path %></p>
     </div>
+    <% if @current_user.username == 'admin' %>
     <div class="admin-controls">
       <%= link_to 'Edit book', edit_book_path(@book) %>
       <%= link_to "Delete book", @book, :method => 'delete', :data => {:confirm => 'Are you sure'} %>
     </div>
+    <% end %>
   </div>
 </div>
