@@ -24,9 +24,11 @@ class ReadingsController < ApplicationController
 
   def update
     book = Book.find params[:book_id]
+    reading = @current_user.readings.find params[:id]
     # @current_user.readings.update :book_id => params[:book_id]
-    # reading.update reading_params
-    @current_user.readings.update reading_params
+    reading.update :book_id => params[:book_id]
+    # @current_user.readings.update reading_params
+    reading.update reading_params
     redirect_to root_path
   end
 
