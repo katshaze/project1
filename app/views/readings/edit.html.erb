@@ -1,2 +1,15 @@
-<h1>Readings#edit</h1>
-<p>Find me in app/views/readings/edit.html.erb</p>
+<h1><%= @reading.book.title %></h1>
+
+<form class="" action="/books/<%= @reading.book.id %>/readings/<%= @reading.id %>" method="put">
+  <label>Status:</label>
+  <select class="" name="">
+    <option value="<%= @reading.to_read = true %>">to read</option>
+    <option value="<%= @reading.reading = true %>">reading</option>
+    <option value="<%= @reading.read = true %>">read</option>
+  </select>
+  <!-- <label>Stars:</label>
+  <select class="" name="">
+    <option value=""></option>
+  </select> -->
+  <button>Update</button>
+</form>

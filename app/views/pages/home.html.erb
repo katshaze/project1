@@ -1,7 +1,35 @@
 <h1>book pinch</h1>
 <% if @current_user.present? %>
   <p>Welcome back <%= @current_user.username %></p>
-  <p>Books you're tracking:</p>
+
+  <p>Currently reading:</p>
+  <% @current_user.readings.each do |reading| %>
+    <% if reading.reading %>
+      <ul>
+        <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <p>To read:</p>
+  <% @current_user.readings.each do |reading| %>
+    <% if reading.to_read %>
+      <ul>
+        <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <p>Already read:</p>
+  <% @current_user.readings.each do |reading| %>
+    <% if reading.read %>
+      <ul>
+        <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <p>All books</p>
   <% @current_user.readings.each do |reading| %>
     <ul>
       <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
