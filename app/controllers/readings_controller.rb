@@ -33,6 +33,10 @@ class ReadingsController < ApplicationController
   end
 
   def destroy
+    book = Book.find params[:book_id]
+    reading = @current_user.readings.find params[:id]
+    reading.destroy
+    redirect_to root_path
   end
 
   private

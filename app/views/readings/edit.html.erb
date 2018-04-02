@@ -2,14 +2,18 @@
 
 <%= form_for [@book, @reading], url: book_reading_path(@book), method: :patch do |f| %>
 <%= f.label :to_read %>
-<%= f.check_box :to_read %>
+<%= f.check_box :to_read %><br>
 <%= f.label :reading %>
-<%= f.check_box :reading %>
+<%= f.check_box :reading %><br>
 <%= f.label :read %>
-<%= f.check_box :read %>
+<%= f.check_box :read %><br>
 
 <%= f.label :stars %>
-<%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %>
+<%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %><br>
 
-<%= f.submit "Update" %>
+<%= f.submit "Update", :class => "button"  %>
 <% end %>
+
+<div class="controls">
+  <%= link_to "Delete", book_reading_path, :method => 'delete', :data => {:confirm => 'Are you sure'} %>
+</div>

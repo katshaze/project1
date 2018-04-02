@@ -5,9 +5,9 @@
     <% @books.each do |book| %>
       <div class="thumb-box">
         <a href="/books/<%= book.id %>" title="<%= book.title %>">
+        <!-- the bit at the end gets the title to pop up on hover -->
           <% if book.image.present? %>
             <%= image_tag book.image, :alt => book.title, :class => 'thumb' %>
-            <!-- the bit at the end gets the title to pop up on hover -->
           <% else %>
             <div class="empty-thumb">
               <div class="empty-thumb-title">
