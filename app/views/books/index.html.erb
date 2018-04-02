@@ -1,5 +1,5 @@
 <div class="flex-column">
-  <h1>All Books</h1>
+  <h1 class="books-index">All Books</h1>
 
   <div class="gallery">
     <% @books.each do |book| %>
@@ -21,7 +21,5 @@
     <% end %>
   </div>
 
-  <div class="">
-    <h3><%= link_to 'Add a book to the database', new_book_path %></h3>
-  </div>
+  <div class="controls"><%= link_to 'Add a book to the database', new_book_path %></div>
 </div>

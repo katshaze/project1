@@ -34,15 +34,15 @@ body {
 }
 
 .major-panel {
-  width: 79%;
+  width: 78%;
   height: 100vh;
-  background-color: rgba(199,142,142,0.8);
+  background-color: rgba(255,132,0,0.5);
   color: black;
   padding: 15px;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 870px;
   margin: 0;
   height: 100vh;
 }
@@ -67,12 +67,17 @@ h1 {
   font-size: 4em;
   margin-top: 0px;
   margin-bottom: 10px;
+  // text-align: right;
+  padding-left: 150px;
+}
+
+h1.home {
   text-align: right;
 }
 
-// h1.home {
-//   text-align: right;
-// }
+h1.books-index {
+  padding-left: 0;
+}
 
 h2.user-home {
   margin-bottom: 0px;
@@ -166,12 +171,16 @@ a {
   color: inherit;
 }
 
-.controls, .admin-controls {
+.controls {
   margin-top: 20px;
 }
-.controls a, .admin-controls a {
+.controls a {
   padding: 5px 10px;
   border: 2px solid black;
+}
+
+.controls div {
+  margin-bottom: 20px;
 }
 
 .details p {
@@ -181,8 +190,13 @@ a {
 
 form {
   padding-left: 150px;
-  font-size: 18px;
+  font-size: 16px;
   font-family: sans-serif;
+  margin-top: 50px;
+}
+
+label, input {
+  margin-bottom: 10px;
 }
 
 .button {
@@ -192,6 +206,26 @@ form {
   padding: 10px;
   // border-radius: 50%;
   border: 3px solid crimson;
-  width: 100px;
-  height: 50px;
+}
+
+.home-msg {
+  margin: 100px 100px;
+  width: 620px;
+  position: relative;
+}
+
+.sign-up-msg {
+  position: absolute;
+  right: 0;
+  border: 2px solid black;
+  padding: 2px 5px;
+}
+
+.delete {
+  margin-left: 150px;
+  background-color: white;
+  width: 85.5px;
+  padding: 10px;
+  text-align: center;
+  border: 2px black solid;
 }

@@ -2,6 +2,7 @@ class ReadingsController < ApplicationController
 
   def index
     @book = Book.find params[:book_id]
+    @users = User.all
   end
 
   def new

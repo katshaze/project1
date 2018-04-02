@@ -106,4 +106,12 @@
       <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
     </ul>
   <% end %>
+<% else %>
+  <div class="home-msg">
+    <h2>Keep track of books you're reading or want to read.</h2>
+    <h2>Mark your favourites. See who else has a similar style.</h2>
+    <h2>Pinch their books.</h2>
+    <br>
+    <%= link_to "Sign up to get started", new_user_path, :class => "sign-up-msg" %>
+  </div>
 <% end %>

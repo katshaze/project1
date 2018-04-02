@@ -1,9 +1,20 @@
 <h1><%= @book.title %></h1>
 
-<p>Being tracked by:</p>
+<p>Users tracking this title:</p>
 <% @book.readings.each do |reading| %>
   <ul>
     <li><%= reading.user.username %></li>
   </ul>
 <% end %>
- 
+
+<p>Faves lists that include this title:</p>
+<% @users.each do |user| %>
+  <% if user.readings.include?(@book) %>
+    <%= user.username %>
+    <% user.readings.each do |reading| %>
+      <% if reading.stars == "****" || reading.stars == "*****" %>
+        <%= reading.book.title %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
