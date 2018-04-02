@@ -9,7 +9,12 @@
             <%= image_tag book.image, :alt => book.title, :class => 'thumb' %>
             <!-- the bit at the end gets the title to pop up on hover -->
           <% else %>
-            <div class="empty-thumb"><%= book.title %></div>
+            <div class="empty-thumb">
+              <div class="empty-thumb-title">
+                <p><%= book.title %></p>
+              </div>
+              <%= image_tag 'empty-thumb.png', :class => 'empty-thumb' %>
+            </div>
           <% end %>
         </a>
       </div>

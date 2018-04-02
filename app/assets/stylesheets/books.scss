@@ -63,34 +63,96 @@ nav a {
   display: block;
 }
 
-// .gallery {
-//   flex-flow: row wrap;
-//   align-items: center;
-// }
+h1 {
+  font-size: 4em;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+h1.home {
+  text-align: right;
+}
+
+h2.user-home {
+  margin-bottom: 0px;
+}
+
+hr {
+border: 0;
+clear:both;
+display:block;
+width: 100%;
+background-color:black;
+height: 2px;
+}
+
+.welcome p {
+  text-align: right;
+  font-size: 16px;
+}
+
+.user-gallery {
+  display: inline-block;
+}
 
 .thumb-box {
-  max-height: 15em;
+  max-height: 200px;
   // margin: 5px;
   display: inline-block;
   vertical-align: top;
-  // display: inline-flex;
+  // position: relative;
 }
 
 .thumb {
   max-height: 15em;
-  // display: inline-flex;
+  display: inline-block;
+  // position: absolute;
+}
+
+.baby-thumb {
+  max-height: 10em;
+  display: inline-block;
 }
 
 .empty-thumb {
-  height: 15em;
-  // line-height: 15em;
-  width: 10em;
-  border: 2px solid black;
-  // display: inline-flex;
+  height: 200px;
+  width: 136px;
+  // border: 2px solid black;
+  display: inline-block;
+  postion: relative;
+}
+
+.empty-thumb div {
+  position: absolute;
+  z-index: 99;
+  word-break: normal;
+  word-wrap: normal;
+  text-align: center;
+  height: 200px;
+  width: 136px;
+}
+
+.baby, .baby div {
+  height: 130px;
+  width: 88px;
+}
+
+.empty-thumb-title p {
+  margin-top: 60px;
+  font-family: sans-serif;
+}
+
+.empty-thumb .img {
+  z-index: -1;
+  position: absolute;
 }
 
 .left, .right {
   padding: 12px;
+}
+
+.user-gallery .right {
+  max-width: 170px;
 }
 
 a {
@@ -104,4 +166,8 @@ a {
 .controls a, .admin-controls a {
   padding: 5px 10px;
   border: 2px solid black;
+}
+
+.details h3 {
+  margin-top: 0px;
 }

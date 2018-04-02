@@ -1,35 +1,109 @@
-<h1>book pinch</h1>
-<% if @current_user.present? %>
-  <p>Welcome back <%= @current_user.username %></p>
+<h1 class="home">Book Pinch</h1>
 
-  <p>Currently reading:</p>
+<% if @current_user.present? %>
+  <div class="welcome"><p>Welcome back <strong><%= @current_user.username %></strong></p></div>
+
+  <h2 class="user-home">Faves</h2>
+  <hr>
+  <% @current_user.readings.each do |reading| %>
+    <% if reading.read && reading.stars == "****" || reading.stars == "*****" %>
+    <div class="user-gallery">
+      <div class="flex-row">
+        <div class="left">
+          <% if reading.book.image.present? %>
+            <%= image_tag reading.book.image, :alt => reading.book.title, :class => 'baby-thumb' %>
+            <!-- the bit at the end gets the title to pop up on hover -->
+          <% else %>
+            <div class="empty-thumb baby">
+              <div class="empty-thumb-title">
+                <p><%= reading.book.title %></p>
+              </div>
+              <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby' %>
+            </div>
+          <% end %>
+        </div>
+        <div class="right">
+          <div class="details">
+            <h3><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></h3>
+            <h4><%= reading.book.author %></h4>
+            <h4>Rating: <%= reading.stars %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  <% end %>
+
+  <h2 class="user-home">Reading</h2>
+  <hr>
   <% @current_user.readings.each do |reading| %>
     <% if reading.reading %>
-      <ul>
-        <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
-      </ul>
+      <div class="user-gallery flex-row">
+        <% if reading.book.image.present? %>
+          <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), edit_book_reading_path(reading.book.id, reading) %>
+          <!-- the bit at the end gets the title to pop up on hover -->
+        <% else %>
+          <div class="empty-thumb baby">
+            <div class="empty-thumb-title">
+              <p><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></p>
+            </div>
+            <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby'  %>
+          </div>
+        <% end %>
+      </div>
+
     <% end %>
   <% end %>
 
-  <p>To read:</p>
+  <h2 class="user-home">To read</h2>
+  <hr>
   <% @current_user.readings.each do |reading| %>
     <% if reading.to_read %>
-      <ul>
-        <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
-      </ul>
+      <!-- <ul>
+        <li><%# link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
+      </ul> -->
+      <div class="user-gallery flex-row">
+        <% if reading.book.image.present? %>
+          <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), edit_book_reading_path(reading.book.id, reading) %>
+          <!-- the bit at the end gets the title to pop up on hover -->
+        <% else %>
+          <div class="empty-thumb baby">
+            <div class="empty-thumb-title">
+              <p><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></p>
+            </div>
+            <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby' %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 
-  <p>Already read:</p>
+  <h2 class="user-home">Read</h2>
+  <hr>
   <% @current_user.readings.each do |reading| %>
     <% if reading.read %>
-      <ul>
-        <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
-      </ul>
+      <!-- <ul>
+        <li><%# link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
+      </ul> -->
+      <div class="user-gallery flex-row">
+        <% if reading.book.image.present? %>
+          <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), edit_book_reading_path(reading.book.id, reading) %>
+          <!-- the bit at the end gets the title to pop up on hover -->
+        <% else %>
+          <div class="empty-thumb baby">
+            <div class="empty-thumb-title">
+              <p><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></p>
+            </div>
+            <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby' %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 
-  <p>All books</p>
+  <h2 class="user-home">All books</h2>
+  <hr>
   <% @current_user.readings.each do |reading| %>
     <ul>
       <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
