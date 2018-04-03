@@ -4,11 +4,11 @@
       <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %></div>
       <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
     <% else %>
-      <div class="empty-thumb baby">
+      <div class="empty-thumb-baby">
         <div class="empty-thumb-title">
           <p><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></p>
         </div>
-        <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby'  %>
+        <%= image_tag 'empty-thumb.png', :class => 'empty-thumb-baby'  %>
         <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
       </div>
     <% end %>

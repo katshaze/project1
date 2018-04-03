@@ -12,11 +12,11 @@
             <% if reading.book.image.present? %>
               <%= image_tag reading.book.image, :alt => reading.book.title, :class => 'baby-thumb' %>
             <% else %>
-              <div class="empty-thumb baby">
+              <div class="empty-thumb-baby">
                 <div class="empty-thumb-title">
                   <p><%= reading.book.title %></p>
                 </div>
-                <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby' %>
+                <%= image_tag 'empty-thumb.png', :class => 'empty-thumb-baby' %>
               </div>
             <% end %>
           </div>
@@ -61,4 +61,5 @@
     <br>
     <%= link_to "Sign up to get started", new_user_path, :class => "sign-up-msg" %>
   </div>
+
 <% end %>

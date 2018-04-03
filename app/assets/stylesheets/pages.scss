@@ -28,6 +28,24 @@ height: 2px;
   max-width: 170px;
 }
 
+.baby-thumb {
+  max-height: 130px;
+}
+
+.empty-thumb-baby {
+  height: 130px;
+  width: 88px;
+  font-size: 14px;
+  position: relative;
+  display: inline-block;
+}
+
+// .baby, .baby div {
+//   height: 130px;
+//   width: 88px;
+//   font-size: 14px;
+// }
+
 .home-msg {
   margin: 100px 100px;
   width: 620px;
