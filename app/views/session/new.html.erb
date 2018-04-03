@@ -1,15 +1,17 @@
 <h1>Log in</h1>
 
-<h2><%= flash[:error] %></h2>
+<div class="error">
+  <%= flash[:error] %>
+</div>
 <!-- above: only shows up if it's the second time through and the first time there was an error with login  -->
 
 <%= form_tag login_path %>
 <!-- # no form helper for form_tag so have to create labels etc. ourselves -->
-  <%= label_tag :username %>
+  <%= label_tag :username %><br>
   <%= text_field_tag :username %><br>
-  <%= label_tag :email %>
+  <%= label_tag :email %><br>
   <%= email_field_tag :email %><br>
-  <%= label_tag :password %>
+  <%= label_tag :password %><br>
   <%= password_field_tag :password %><br>
 
   <%= submit_tag "Log in", :class => "button" %>

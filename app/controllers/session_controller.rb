@@ -10,10 +10,9 @@ class SessionController < ApplicationController
     if @user.present? && @user.authenticate(params[:password])
       # remember this user in the session
       session[:user_id] = @user.id # only storing user_id to not use up too much memory. so remembers user by id
-      flash[:notice] = "User logged in successfully"
       redirect_to root_path
     else
-      flash[:error] = "Invalid email or password" # store in flash means next page sees it, but one after it's gone.
+      flash[:error] = "Oops! Invalid email or password" # store in flash means next page sees it, but one after it's gone.
       # send them to the login page again
       redirect_to login_path
     end

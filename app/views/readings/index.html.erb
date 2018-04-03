@@ -1,11 +1,27 @@
-<h1><%= @book.title %></h1>
+<div class="">
+  <h2>If you loved <span><%= @book.title %></span> by <%=@book.author%> check out the faves lists of users who also loved the book.</h2>
+</div>
 
-<p>Faves lists that include this title:</p>
-<% @other_lovers.each do |lover| %>
-  <p>User: <strong><%= lover.username %></strong></p>
-  <% lover.readings.each do |reading| %>
-    <% if reading.stars == "****" || reading.stars == "*****" %>
-      <%= reading.book.title %>
-    <% end %>
+<div class="gallery">
+  <% @other_lovers.each do |lover| %>
+    <h3><%= lover.username %></h3>
+    <div class="gallery">
+      <% lover.readings.each do |reading| %>
+        <% if reading.stars == "****" || reading.stars == "*****" %>
+          <div class="gallery-box">
+            <% if reading.book.image.present? %>
+              <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %></div>
+            <% else %>
+              <div class="empty-thumb-baby">
+                <div class="empty-thumb-title">
+                  <p><%= link_to reading.book.title, book_path(reading.book.id) %></p>
+                </div>
+                <%= image_tag 'empty-thumb.png', :class => 'empty-thumb-baby'  %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>

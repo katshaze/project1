@@ -2,6 +2,18 @@
 //   border: 1px solid purple;
 // }
 
+// // Variables
+// $brand-color: maroon;
+// $centered: 0 auto;
+//
+// //Mixins (like functions)
+// @mixin greyItalic {
+//   color:grey;
+//   font-style:italic;
+// }
+$side-panel: rgba(230,18,39,0.85);
+$major-panel: rgba(255,132,0,0.5);
+
 * {
   box-sizing: border-box;
 }
@@ -22,7 +34,7 @@ body {
 .side-panel {
   width: 23%;
   height: 100vh;
-  background-color: rgba(230,18,39,0.85);
+  background-color: $side-panel;
   color: white;
   font-family: monospace;
   padding: 15px;
@@ -32,7 +44,7 @@ body {
 .major-panel {
   width: 78%;
   height: 100vh;
-  background-color: rgba(255,132,0,0.5);
+  background-color: $major-panel;
   color: black;
   padding: 15px;
 }
@@ -136,16 +148,32 @@ form {
   margin-top: 50px;
 }
 
-label, input {
+label, input, check-box, select {
   margin-bottom: 10px;
 }
 
-.button {
-  margin-top: 20px;
-  font-size: 18px;
+input {
+  width: 350px;
+}
+
+check-box {
+
+}
+
+.button, button {
+  margin-top: 10px;
+  font-size: 16px;
   color: crimson;
-  padding: 10px;
+  padding: 3px;
   // border-radius: 50%;
-  border: 3px solid crimson;
+  border: 2px solid crimson;
+  // background-color: $side-panel;
   cursor: pointer;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+button {
+  color: black;
+  border: 2px solid black;
 }

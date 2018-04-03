@@ -10,19 +10,19 @@
         <div class="flex-row">
           <div class="left">
             <% if reading.book.image.present? %>
-              <%= image_tag reading.book.image, :alt => reading.book.title, :class => 'baby-thumb' %>
+              <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %>
             <% else %>
               <div class="empty-thumb-baby">
                 <div class="empty-thumb-title">
                   <p><%= reading.book.title %></p>
                 </div>
-                <%= image_tag 'empty-thumb.png', :class => 'empty-thumb-baby' %>
+                <%= link_to image_tag('empty-thumb.png', :class => 'empty-thumb-baby'), book_path(reading.book.id) %>
               </div>
             <% end %>
           </div>
           <div class="right">
             <div class="details">
-              <p><strong><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></strong><br>
+              <p><strong><%= link_to reading.book.title, book_path(reading.book.id) %></strong><br>
               <%= reading.book.author %></p>
               <p>Rating: <%= reading.stars %></p>
               <div class="controls">
@@ -59,7 +59,9 @@
     <h2>Mark your favourites. See who else has a similar style.</h2>
     <h2>Pinch their books.</h2>
     <br>
-    <%= link_to "Sign up to get started", new_user_path, :class => "sign-up-msg" %>
+    <div><%= link_to "Sign up to get started", new_user_path, :class => "sign-up-msg" %></div>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
   </div>
-
 <% end %>

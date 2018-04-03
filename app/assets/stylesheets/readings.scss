@@ -1,3 +1,29 @@
 // Place all the styles related to the Readings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.delete-entry {
+  padding-left: 150px;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.delete-entry .button {
+  border: 2px solid black;
+  color: black;
+  padding: 3px 10px;
+}
+
+.floating {
+  float: left;
+}
+
+.left-h1 {
+  padding-left: 0;
+}
+
+span {
+  font-size: 30px;
+  color: #3f51b5;
+}

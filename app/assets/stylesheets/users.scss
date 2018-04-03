@@ -1,3 +1,15 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.error {
+  padding-left: 150px;
+  margin-top: 40px;
+}
+
+.delete-account {
+  margin-top: 30px;
+  padding-left: 150px;
+  font-family: sans-serif;
+}
+
+.delete-account .button {
+  color: black;
+  border: 2px solid black;
+}

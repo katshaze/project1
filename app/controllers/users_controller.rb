@@ -7,15 +7,27 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params # instead of User.create, which immediately tries to save the user into the db, and instead of user it's @user since we need the params to then test it out...(?)
     if @user.save # i.e. if it returns something truthy
+      flash[:notice] = "Success! Login to start tracking books."
       redirect_to root_path
-      flash[:success] = "Success! Login to start tracking books."
     else
       render :new
     end
   end
 
   def show
+  end
 
+  def edit
+    @user = User.find params[:id]
+  end
+
+  def update
+  end
+
+  def destroy
+    user = User.find params[:id]
+    session[:user_id] = nil
+    redirect_to new_user_path
   end
 
   private
