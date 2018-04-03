@@ -1,0 +1,9 @@
+<% @current_user.readings.each do |reading| %>
+  <% if reading.read && reading.stars == "****" || reading.stars == "*****" %>
+<% end %>
+
+<% @current_user.readings.each do |reading| %>
+  <% if reading.reading %>
+<% end %>
+
+<%= render :partial => 'users', :collection => @users, :locals => {:size => 30} %>

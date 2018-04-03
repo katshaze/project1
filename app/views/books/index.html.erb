@@ -3,7 +3,7 @@
 
   <div class="gallery">
     <% @books.each do |book| %>
-      <div class="thumb-box">
+      <div class="gallery-box">
         <a href="/books/<%= book.id %>" title="<%= book.title %>">
         <!-- the bit at the end gets the title to pop up on hover -->
           <% if book.image.present? %>

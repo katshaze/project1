@@ -5,9 +5,8 @@
 
   <h2 class="user-home">Faves</h2>
   <hr>
-  <% @current_user.readings.each do |reading| %>
-    <% if reading.read && reading.stars == "****" || reading.stars == "*****" %>
-      <div class="user-gallery">
+  <% @faves.each do |reading| %>
+      <div class="gallery-box">
         <div class="flex-row">
           <div class="left">
             <% if reading.book.image.present? %>
@@ -33,71 +32,19 @@
           </div>
         </div>
       </div>
-    <% end %>
   <% end %>
 
   <h2 class="user-home">Reading</h2>
   <hr>
-  <% @current_user.readings.each do |reading| %>
-    <% if reading.reading %>
-      <div class="user-gallery baby-thumb-box">
-        <% if reading.book.image.present? %>
-          <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %></div>
-          <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-        <% else %>
-          <div class="empty-thumb baby">
-            <div class="empty-thumb-title">
-              <p><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></p>
-            </div>
-            <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby'  %>
-            <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render :partial => 'gallery', locals: { status: @currently_reading } %>
 
   <h2 class="user-home">To read</h2>
   <hr>
-  <% @current_user.readings.each do |reading| %>
-    <% if reading.to_read %>
-      <div class="user-gallery flex-row">
-        <% if reading.book.image.present? %>
-          <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %></div>
-          <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-        <% else %>
-          <div class="empty-thumb baby">
-            <div class="empty-thumb-title">
-              <p><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></p>
-            </div>
-            <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby'  %>
-            <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render :partial => 'gallery', locals: { status: @to_read } %>
 
   <h2 class="user-home">Read</h2>
   <hr>
-  <% @current_user.readings.each do |reading| %>
-    <% if reading.read %>
-      <div class="user-gallery flex-row">
-        <% if reading.book.image.present? %>
-          <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %></div>
-          <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-        <% else %>
-          <div class="empty-thumb baby">
-            <div class="empty-thumb-title">
-              <p><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></p>
-            </div>
-            <%= image_tag 'empty-thumb.png', :class => 'empty-thumb baby'  %>
-            <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render :partial => 'gallery', locals: { status: @read } %>
 
   <h2 class="user-home">All books</h2>
   <hr>

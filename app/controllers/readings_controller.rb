@@ -2,7 +2,7 @@ class ReadingsController < ApplicationController
 
   def index
     @book = Book.find params[:book_id]
-    @users = User.all
+    @other_lovers = User.joins(:readings).where('readings.book_id' => @book.id).where('readings.stars' => ["****", "*****"])
   end
 
   def new

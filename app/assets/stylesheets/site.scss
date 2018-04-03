@@ -1,0 +1,171 @@
+// * {
+//   border: 1px solid purple;
+// }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  color: black;
+  height: 100vh;
+  display: flex;
+}
+
+.side-panel {
+  width: 23%;
+  height: 100vh;
+  background-color: rgba(230,18,39,0.85);
+  color: white;
+  font-family: monospace;
+  padding: 15px;
+  font-size: 22px;
+}
+
+.major-panel {
+  width: 78%;
+  height: 100vh;
+  background-color: rgba(255,132,0,0.5);
+  color: black;
+  padding: 15px;
+}
+
+.container {
+  max-width: 870px;
+  margin: 0;
+  height: 100vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+nav a {
+  font: Monospace;
+  text-align: right;
+  display: block;
+}
+
+h1 {
+  font-size: 4em;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  // text-align: right;
+  padding-left: 150px;
+}
+
+.gallery-box {
+  // max-height: 200px;
+  // margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+  // position: relative;
+}
+
+.thumb {
+  max-height: 200px;
+}
+
+.baby-thumb {
+  max-height: 130px;
+  // display: inline-block;
+}
+
+.empty-thumb {
+  height: 200px;
+  width: 136px;
+  // border: 2px solid black;
+  display: inline-block;
+  postion: relative;
+}
+
+// .empty-thumb .baby, .baby .empty-thumb-title {
+//   height: 130px;
+//   width: 88px;
+//   font-size: 14px;
+// }
+
+.baby, .baby div {
+  height: 130px;
+  width: 88px;
+  font-size: 14px;
+}
+
+.empty-thumb-title {
+  position: absolute;
+  z-index: 99;
+  word-break: normal;
+  word-wrap: normal;
+  text-align: center;
+  height: 200px;
+  width: 136px;
+}
+
+.empty-thumb-title p {
+  margin-top: 40px;
+  font-family: sans-serif;
+}
+
+.empty-thumb .img {
+  z-index: -1;
+  position: absolute;
+}
+
+.left, .right {
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.controls {
+  margin-top: 20px;
+}
+.controls a {
+  padding: 5px 10px;
+  border: 2px solid black;
+}
+
+.controls div {
+  margin-bottom: 20px;
+}
+
+.details p {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+form {
+  padding-left: 150px;
+  font-size: 16px;
+  font-family: sans-serif;
+  margin-top: 50px;
+}
+
+label, input {
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-top: 20px;
+  font-size: 18px;
+  color: crimson;
+  padding: 10px;
+  // border-radius: 50%;
+  border: 3px solid crimson;
+}
