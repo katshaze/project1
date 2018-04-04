@@ -1,3 +1,5 @@
+<h1 class=book-show><%= @book.title %></h1>
+<h2><%= @book.author %></h2>
 <div class="flex-row">
   <div class="left">
     <% if @book.image.present? %>
@@ -6,14 +8,15 @@
   </div>
   <div class="right">
     <div class="details">
-      <h1><%= @book.title %></h1>
-      <h2><%= @book.author %></h2>
       <% if @book.link.present? %>
         <h3><%= link_to ">> View on Goodreads", @book.link %></h3>
       <% end %>
     </div>
     <div class="controls">
       <div><%= link_to 'Add to my books', new_book_reading_path(@book), :method => 'get' %></div>
+      <div class="stop-right-there">
+        <%= flash[:error] %>
+      </div>
       <div><%= link_to "If you loved this, you might also like...", book_readings_path(@book) %></div>
       <div><%= link_to 'Back', books_path %></div>
     </div>

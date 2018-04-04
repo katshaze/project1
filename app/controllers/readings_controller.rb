@@ -7,8 +7,14 @@ class ReadingsController < ApplicationController
 
   def new
     @book = Book.find params[:book_id]
+    @list = @current_user.readings.where('readings.book_id' => @book.id)
+    if @list.length > 0
+      # raise :hell
+      redirect_to book_path(@book.id)
+      flash[:error] = "You're already tracking this book. Edit it via your homepage."
+    else
     @reading = @current_user.readings.new
-    # @reading = @current_user.readings.find params[:id]
+    end
   end
 
   def create

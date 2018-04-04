@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   def home
-    # @users = User.all
-    # @readings = Reading.all
+    # raise :hell
     if @current_user.present?
       @faves = @current_user.readings.where('readings.stars' => ["****", "*****"])
       @currently_reading = @current_user.readings.where('readings.reading')

@@ -1,3 +1,16 @@
-h1.books-index, .details h1 {
+h1.books-index, .details h1, h1.book-show {
   padding-left: 0;
+}
+
+.search-results h1 {
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+.search-results h2 {
+  margin-top: 5px;
+}
+
+.search-results {
+  padding-left: 5px;
 }

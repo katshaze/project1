@@ -12,7 +12,7 @@
 //   font-style:italic;
 // }
 $side-panel: rgba(230,18,39,0.85);
-$major-panel: rgba(255,132,0,0.5);
+$major-panel: rgba(255,132,0,0.25);
 
 * {
   box-sizing: border-box;
@@ -79,18 +79,22 @@ h1 {
   padding-left: 150px;
 }
 
+h2 {
+  margin-top: 0;
+}
+
 .gallery-box {
   display: inline-block;
   vertical-align: top;
 }
 
 .thumb {
-  max-height: 200px;
+  max-height: 151px;
 }
 
 .empty-thumb {
-  height: 200px;
-  width: 136px;
+  height: 151px;
+  width: 98px;
   display: inline-block;
   postion: relative;
 }
@@ -156,9 +160,6 @@ input {
   width: 350px;
 }
 
-check-box {
-
-}
 
 .button, button {
   margin-top: 10px;
@@ -171,9 +172,24 @@ check-box {
   cursor: pointer;
   font-size: 16px;
   font-family: sans-serif;
+  margin-bottom: 20px;
 }
 
 button {
   color: black;
   border: 2px solid black;
+}
+
+.notice {
+  position: absolute;
+  right: 0;
+  color: #3f51b5;
+  bottom: -60px;
+  font-size: 14px;
+}
+
+.stop-right-there {
+  color: #3f51b5;
+  font-size: 14px;
+  font-weight: bold;
 }

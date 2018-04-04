@@ -1,0 +1,20 @@
+<div class="search-results">
+  <h2>Top hit:</h2>
+
+  <div class="flex-row">
+    <div class="left">
+      <img src="<%= @book_cover %>" alt="Book cover of <%= @title %>">
+    </div>
+    <div class="right">
+      <div class="details search-results">
+        <h1><%= @title %></h1>
+        <h2><%= @author %></h2>
+      </div>
+      <div class="controls">
+        <div><%= link_to 'Add to my books', new_book_reading_path(@book), :method => 'get' %></div>
+        <div><%= link_to 'Back to search', books_search_path %></div>
+      </div>
+    </div>
+  </div>
+
+</div>

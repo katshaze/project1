@@ -14,9 +14,9 @@
             <% else %>
               <div class="empty-thumb-baby">
                 <div class="empty-thumb-title">
-                  <p><%= reading.book.title %></p>
+                  <p><%= link_to reading.book.title, book_path(reading.book.id) %></p>
                 </div>
-                <%= link_to image_tag('empty-thumb.png', :class => 'empty-thumb-baby'), book_path(reading.book.id) %>
+                <%= image_tag 'empty-thumb.png', :class => 'empty-thumb-baby' %>
               </div>
             <% end %>
           </div>
