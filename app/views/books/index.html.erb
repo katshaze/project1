@@ -1,5 +1,6 @@
 <div class="flex-column">
   <h1 class="books-index">All Books</h1>
+  <h3>Is the book you're looking for not here? <span class="search"><%= link_to "Search more books here", books_search_path %></span></h3>
 
   <div class="gallery">
     <% @books.each do |book| %>
@@ -21,5 +22,9 @@
     <% end %>
   </div>
 
-  <div class="controls"><%= link_to 'Add a book to the database', new_book_path %></div>
+  <% if @current_user.present? %>
+    <% if @current_user.username == 'admin' %>
+      <div class="controls"><%= link_to 'Add a book to the database', new_book_path %></div>
+    <% end %>
+  <% end %>
 </div>

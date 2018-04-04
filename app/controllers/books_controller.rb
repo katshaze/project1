@@ -17,11 +17,20 @@ class BooksController < ApplicationController
     if gr_data["total_results"] == "0"
       flash[:notice] = "No results, sorry. Try another title."
       redirect_to (books_search_path)
+    elsif gr_data["total_results"] == "1"
+      @title = gr_data['results']['work']['best_book']['title']
+      @author = gr_data['results']['work']['best_book']['author']['name']
+      @book_cover = gr_data['results']['work']['best_book']['image_url']
+      unless Book.title.include? @title
+      @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
+      end
     else
       @title = gr_data['results']['work'][0]['best_book']['title']
       @author = gr_data['results']['work'][0]['best_book']['author']['name']
       @book_cover = gr_data['results']['work'][0]['best_book']['image_url']
+      unless Book.title.include? @title
       @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
+      end
     end
   end
 
