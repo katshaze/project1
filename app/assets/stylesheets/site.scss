@@ -124,10 +124,11 @@ h2 {
   text-align: center;
   height: inherit;
   width: inherit;
+  overflow: hidden;
 }
 
 .empty-thumb-title p {
-  margin-top: 20px;
+  margin-top: 10px;
   font-family: sans-serif;
   padding: 3px;
   font-size: 14px;
