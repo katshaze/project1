@@ -11,7 +11,7 @@
         <h2><%= @author %></h2>
       </div>
       <div class="controls">
-        <div><%= link_to 'Add to my books', new_book_reading_path(@book), :method => 'get' %></div>
+        <div><%= link_to 'Add to my books', new_book_reading_path(@book.id), :method => 'get' %></div>
         <div><%= link_to 'Back to search', books_search_path %></div>
       </div>
     </div>

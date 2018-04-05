@@ -1,16 +1,17 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all.order(:title)
-    # could also order by title, :title, can also just say e.g. Work.order(:title)
+    # could also order by title, :title, can also just say e.g. Book.order(:title)
   end
 
   def search
   end
 
   def result
-    @book = Book.new
-    @book_title = params[:book_title]
-    search_url = "https://www.goodreads.com/search.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&q=#{@book_title}"
+    book_title = params[:book_title]
+    # below: check if book title searched is already in database of books.
+    list = Book.where('books.title' => book_title)
+    search_url = "https://www.goodreads.com/search.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&q=#{book_title}"
     gr_data = HTTParty.get search_url
     gr_data = gr_data.parsed_response['GoodreadsResponse']['search']
     # raise :hell
@@ -21,16 +22,16 @@ class BooksController < ApplicationController
       @title = gr_data['results']['work']['best_book']['title']
       @author = gr_data['results']['work']['best_book']['author']['name']
       @book_cover = gr_data['results']['work']['best_book']['image_url']
-      unless Book.title.include? @title
-      @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
-      end
     else
       @title = gr_data['results']['work'][0]['best_book']['title']
       @author = gr_data['results']['work'][0]['best_book']['author']['name']
       @book_cover = gr_data['results']['work'][0]['best_book']['image_url']
-      unless Book.title.include? @title
-      @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
-      end
+    end
+
+    if list.length > 0
+      redirect_to book_path(list[0].id)
+    else
+    @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
     end
   end
 
