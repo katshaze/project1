@@ -3,22 +3,30 @@
 <div class="flex-row">
   <div class="left">
     <% if @book.image.present? %>
-      <%= image_tag @book.image, :class => 'feature' %>
+      <%= image_tag @book.image, :class => 'thumb' %>
+    <% else %>
+      <div class="empty-thumb">
+        <div class="empty-thumb-title">
+          <p><%= @book.title %></p>
+          <p class="smaller"><%= @book.author %></p>
+        </div>
+        <%= image_tag 'empty-thumb2.png', :class => 'empty-thumb' %>
+      </div>
     <% end %>
   </div>
   <div class="right">
-    <div class="details">
-      <% if @book.link.present? %>
-        <h3><%= link_to ">> View on Goodreads", @book.link %></h3>
-      <% end %>
-    </div>
     <div class="controls">
       <div><%= link_to 'Add to my books', new_book_reading_path(@book), :method => 'get' %></div>
       <div class="stop-right-there">
         <%= flash[:error] %>
       </div>
-      <div><%= link_to "If you loved this, you might also like...", book_readings_path(@book) %></div>
-      <div><%= link_to 'Back', books_path %></div>
+      <div class="jazz-colour"><%= link_to "If you loved this, you might also like...", book_readings_path(@book) %></div>
+      <div>
+        <%= link_to 'Back to all books', books_path %>
+        <% if @current_user.present? %>
+          <%= link_to 'Back to my books', root_path %>
+        <% end %>
+      </div>
     </div>
     <% if @current_user.present? %>
       <% if @current_user.username == 'admin' %>
@@ -29,4 +37,9 @@
       <% end %>
     <% end %>
   </div>
+</div>
+<div class="details">
+  <% if @book.link.present? %>
+    <h3><%= link_to ">> View on Goodreads", @book.link %></h3>
+  <% end %>
 </div>

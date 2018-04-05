@@ -9,12 +9,12 @@ class BooksController < ApplicationController
 
   def result
     book_title = params[:book_title]
+    book_title = book_title.titleize
     # below: check if book title searched is already in database of books.
     list = Book.where('books.title' => book_title)
     search_url = "https://www.goodreads.com/search.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&q=#{book_title}"
     gr_data = HTTParty.get search_url
     gr_data = gr_data.parsed_response['GoodreadsResponse']['search']
-    # raise :hell
     if gr_data["total_results"] == "0"
       flash[:notice] = "No results, sorry. Try another title."
       redirect_to (books_search_path)
@@ -31,8 +31,13 @@ class BooksController < ApplicationController
     if list.length > 0
       redirect_to book_path(list[0].id)
     else
-    @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
+      unless @book_cover.include? "nophoto"
+        @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
+      else
+        @book = Book.create(:title => @title, :author => @author)
+      end
     end
+    # raise :hell
   end
 
   def show

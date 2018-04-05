@@ -28,32 +28,47 @@ body {
   margin: 0;
   padding: 0;
   color: black;
-  height: 100vh;
+  min-height: 100vh;
+
+}
+
+.container {
   display: flex;
+  min-height: 100vh;
 }
 
 .side-panel {
   width: 23%;
-  height: 100vh;
+  min-height: 100%;
   background-color: $side-panel;
   color: white;
   font-family: monospace;
   padding: 15px;
   font-size: 22px;
+  flex-grow: 1;
 }
 
 .major-panel {
   width: 78%;
-  height: 100vh;
+  min-height: 100%;
   background-color: $major-panel;
   color: black;
   padding: 15px;
+  flex-grow: 1;
 }
 
-.container {
+.jazz-colour {
+  color: $jazz-colour;
+}
+
+.controls .jazz-colour a {
+  border: 2px solid $jazz-colour;
+}
+
+.main {
   max-width: 870px;
   margin: 0;
-  height: 100vh;
+  height: 100%;
 }
 
 .flex-row {
@@ -87,6 +102,7 @@ h2 {
 .gallery-box {
   display: inline-block;
   vertical-align: top;
+  margin-bottom: 20px;
 }
 
 .thumb {
@@ -111,8 +127,13 @@ h2 {
 }
 
 .empty-thumb-title p {
-  margin-top: 40px;
+  margin-top: 20px;
   font-family: sans-serif;
+  padding: 3px;
+}
+
+p.smaller {
+  font-size: 13px;
 }
 
 .empty-thumb .img {

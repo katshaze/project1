@@ -5,45 +5,62 @@
 
   <h2 class="user-home">Faves</h2>
   <hr>
-  <% @faves.each do |reading| %>
-      <div class="gallery-box">
-        <div class="flex-row">
-          <div class="left">
-            <% if reading.book.image.present? %>
-              <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %>
-            <% else %>
-              <div class="empty-thumb-baby">
-                <div class="empty-thumb-title">
-                  <p><%= link_to reading.book.title, book_path(reading.book.id) %></p>
+  <% if @faves.length == 0 %>
+    <p class="jazz-colour">Books you read and rate four or five stars will pop up here.</p>
+    <p class="jazz-colour"><strong>For books you love, you can find other users with that same book in their faves list.</strong></p>
+  <% else %>
+    <p class="jazz-colour"><strong>Click on 'Other Lovers' for any of your favourite books to find other users who also loved that book, and explore their favourites lists.</strong></p>
+    <% @faves.each do |reading| %>
+        <div class="gallery-box">
+          <div class="flex-row">
+            <div class="left">
+              <% if reading.book.image.present? %>
+                <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %>
+              <% else %>
+                <div class="empty-thumb-baby">
+                  <div class="empty-thumb-title">
+                    <p><%= link_to reading.book.title, book_path(reading.book.id) %></p>
+                    <p class="smaller"><%= reading.book.author %></p>
+                  </div>
+                  <%= image_tag 'empty-thumb2.png', :class => 'empty-thumb-baby' %>
                 </div>
-                <%= image_tag 'empty-thumb.png', :class => 'empty-thumb-baby' %>
-              </div>
-            <% end %>
-          </div>
-          <div class="right">
-            <div class="details">
-              <p><strong><%= link_to reading.book.title, book_path(reading.book.id) %></strong><br>
-              <%= reading.book.author %></p>
-              <p>Rating: <%= reading.stars %></p>
-              <div class="controls">
-                <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
+              <% end %>
+            </div>
+            <div class="right">
+              <div class="details">
+                <p><strong><%= link_to reading.book.title, book_path(reading.book.id) %></strong><br>
+                <%= reading.book.author %></p>
+                <p>Rating: <%= reading.stars %></p>
+                <div class="controls">
+                  <div><%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %></div>
+                  <div><%= link_to 'Other lovers', book_readings_path(reading.book.id) %></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+    <% end %>
   <% end %>
 
   <h2 class="user-home">Reading</h2>
   <hr>
+  <% if @currently_reading.length == 0 %>
+    <p class="jazz-colour">You're not currently reading any books.</p>
+  <% end %>
   <%= render :partial => 'gallery', locals: { status: @currently_reading } %>
 
   <h2 class="user-home">To read</h2>
   <hr>
+  <% if @to_read.length == 0 %>
+    <p class="jazz-colour">Add books here that you want to read in the future.</p>
+  <% end %>
   <%= render :partial => 'gallery', locals: { status: @to_read } %>
 
   <h2 class="user-home">Read</h2>
   <hr>
+  <% if @to_read.length == 0 %>
+    <p class="jazz-colour">All the books you've ever (marked as) read are tracked here.</p>
+  <% end %>
   <%= render :partial => 'gallery', locals: { status: @read } %>
 
   <h2 class="user-home">All books</h2>
