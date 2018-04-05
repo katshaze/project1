@@ -2,8 +2,12 @@ $side-panel: rgba(230,18,39,0.85);
 $major-panel: rgba(255,132,0,0.25);
 $jazz-colour: #3f51b5;
 
-h1.books-index, .details h1, h1.book-show {
+.books-index h1, .details h1, h1.book-show {
   padding-left: 0;
+}
+
+.books-index h3 {
+  margin-bottom: 30px;
 }
 
 .search-results h1 {

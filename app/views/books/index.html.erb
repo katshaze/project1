@@ -1,31 +1,35 @@
-<div class="flex-column">
-  <h1 class="books-index">All Books</h1>
-  <h3>Check out the books below. Don't see what you're looking for? <span class="search"><%= link_to "Search more books here", books_search_path %></span></h3>
+<div class="books-index">
 
-  <div class="gallery">
-    <% @books.each do |book| %>
-      <div class="gallery-box">
-        <a href="/books/<%= book.id %>" title="<%= book.title %>">
-        <!-- the bit at the end gets the title to pop up on hover -->
-          <% if book.image.present? %>
-            <%= image_tag book.image, :alt => book.title, :class => 'thumb' %>
-          <% else %>
-            <div class="empty-thumb">
-              <div class="empty-thumb-title">
-                <p><%= book.title.split(":").first %></p>
-                <p class="smaller"><%= book.author %></p>
+  <div class="flex-column">
+    <h1>All Books</h1>
+    <h3>Don't see the book you're looking for? <span class="search"><%= link_to "Search more books here", books_search_path %></span></h3>
+
+    <div class="gallery">
+      <% @books.each do |book| %>
+        <div class="gallery-box">
+          <a href="/books/<%= book.id %>" title="<%= book.title %>">
+          <!-- the bit at the end gets the title to pop up on hover -->
+            <% if book.image.present? %>
+              <%= image_tag book.image, :alt => book.title, :class => 'thumb' %>
+            <% else %>
+              <div class="empty-thumb">
+                <div class="empty-thumb-title">
+                  <p><%= book.title.split(":").first %></p>
+                  <p class="smaller"><%= book.author %></p>
+                </div>
+                <%= image_tag 'empty-thumb2.png', :class => 'empty-thumb' %>
               </div>
-              <%= image_tag 'empty-thumb2.png', :class => 'empty-thumb' %>
-            </div>
-          <% end %>
-        </a>
-      </div>
+            <% end %>
+          </a>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @current_user.present? %>
+      <% if @current_user.username == 'admin' %>
+        <div class="controls"><%= link_to 'Add a book to the database', new_book_path %></div>
+      <% end %>
     <% end %>
   </div>
 
-  <% if @current_user.present? %>
-    <% if @current_user.username == 'admin' %>
-      <div class="controls"><%= link_to 'Add a book to the database', new_book_path %></div>
-    <% end %>
-  <% end %>
 </div>
