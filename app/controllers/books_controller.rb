@@ -9,9 +9,7 @@ class BooksController < ApplicationController
 
   def result
     book_title = params[:book_title]
-    book_title = book_title.titleize
     # below: check if book title searched is already in database of books.
-    list = Book.where('books.title' => book_title)
     search_url = "https://www.goodreads.com/search.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&q=#{book_title}"
     gr_data = HTTParty.get search_url
     gr_data = gr_data.parsed_response['GoodreadsResponse']['search']
@@ -22,12 +20,14 @@ class BooksController < ApplicationController
       @title = gr_data['results']['work']['best_book']['title']
       @author = gr_data['results']['work']['best_book']['author']['name']
       @book_cover = gr_data['results']['work']['best_book']['image_url']
+      @unique_id = gr_data['results']['work']['best_book']['id']
     else
       @title = gr_data['results']['work'][0]['best_book']['title']
       @author = gr_data['results']['work'][0]['best_book']['author']['name']
       @book_cover = gr_data['results']['work'][0]['best_book']['image_url']
+      @unique_id = gr_data['results']['work'][0]['best_book']['id']
     end
-
+    list = Book.where('books.title' => @title)
     if list.length > 0
       redirect_to book_path(list[0].id)
     else

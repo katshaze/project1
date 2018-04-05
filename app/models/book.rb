@@ -13,4 +13,6 @@
 
 class Book < ApplicationRecord
   has_many :readings
+
+  # validates :unique_id, :uniqueness => true
 end
