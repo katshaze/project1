@@ -9,13 +9,13 @@
     <p class="jazz-colour">Books you read and rate four or five stars will pop up here.</p>
     <p class="jazz-colour"><strong>For books you love, you can find other users with that same book in their faves list.</strong></p>
   <% else %>
-    <p class="jazz-colour"><strong>Click on 'Other Lovers' for any of your favourite books to find other users who also loved that book, and explore their favourites lists.</strong></p>
+    <p class="jazz-colour"><strong>Click on 'Other Lovers' to find other users who also loved that book, and explore their favourites lists.</strong></p>
     <% @faves.each do |reading| %>
         <div class="gallery-box">
           <div class="flex-row">
             <div class="left">
               <% if reading.book.image.present? %>
-                <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %>
+                <%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb', :title => reading.book.title), book_path(reading.book.id) %>
               <% else %>
                 <div class="empty-thumb-baby">
                   <div class="empty-thumb-title">

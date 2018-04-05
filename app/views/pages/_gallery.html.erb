@@ -1,7 +1,7 @@
 <% status.each do |reading| %>
   <div class="gallery-box">
     <% if reading.book.image.present? %>
-      <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb'), book_path(reading.book.id) %></div>
+      <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb', :title => reading.book.title), book_path(reading.book.id) %></div>
       <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
     <% else %>
       <div class="empty-thumb-baby">

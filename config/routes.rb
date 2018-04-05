@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'pages#home'
-  resources :users, :except => [:index]
+  resources :users
   get '/books/search' => 'books#search'
   post '/books/search' => 'books#import'
   get '/books/result' => 'books#result'

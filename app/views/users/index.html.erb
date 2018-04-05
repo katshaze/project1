@@ -1,0 +1,17 @@
+<div class="user-index">
+  <% if @current_user.present? %>
+    <% if @current_user.username == 'admin' %>
+      <h2>All users</h2>
+      <% @users.each do |user| %>
+        <ul>
+          <li>User id: <%= user.id %></li>
+          <ul>
+            <li><%= user.username %></li>
+            <li><%= user.email %></li>
+          </ul>
+        </ul>
+
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
