@@ -32,7 +32,8 @@
                 <%= reading.book.author %></p>
                 <p>Rating: <%= reading.stars %></p>
                 <div class="controls">
-                  <div><%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %><%= link_to 'Other lovers', book_readings_path(reading.book.id) %></div>
+                  <div><%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %></div>
+                  <div><%= link_to 'Other lovers', book_readings_path(reading.book.id) %></div>
                 </div>
               </div>
             </div>
