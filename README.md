@@ -28,10 +28,10 @@ https://bookpinch.herokuapp.com
 * Ability to see other users with similar taste
 
 ## Sore bits
-* Haven't touched on responsiveness
+* Book search is limited - only gets top hit, can only search by book title
+* CSS not finished; haven't touched on responsiveness
 * Read status options aren't in 'select' format
-* Goodreads search results a bit minimal
-* CSS not finished
+* Results displayed from goodreads search are limited - need description & goodreads link at least
 
 ## To do
 - [ ] Make it responsive, particularly for mobile
