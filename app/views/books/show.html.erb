@@ -16,10 +16,12 @@
   </div>
   <div class="right">
     <div class="controls">
+      <% if @current_user.present? %>
       <div><%= link_to 'Add to my books', new_book_reading_path(@book), :method => 'get' %></div>
       <div class="stop-right-there">
         <%= flash[:error] %>
       </div>
+      <% end %>
       <div class="jazz-colour"><%= link_to "If you loved this, you might also like...", book_readings_path(@book) %></div>
       <div>
         <%= link_to 'Back to all books', books_path %>
