@@ -11,7 +11,9 @@
         <h2><%= @author %></h2>
       </div>
       <div class="controls">
+        <% if @current_user.present? %>
         <div><%= link_to 'Add to my books', new_book_reading_path(@book.id), :method => 'get' %></div>
+        <% end %>
         <div><%= link_to 'Back to search', books_search_path %></div>
       </div>
     </div>
