@@ -2,7 +2,6 @@ class BooksController < ApplicationController
   def index
     @books = Book.all.order(:title)
     # could also order by title, :title, can also just say e.g. Book.order(:title)
-    # @book.title = @book.title.split(":").first
   end
 
   def search

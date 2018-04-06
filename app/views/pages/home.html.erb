@@ -1,6 +1,10 @@
 <h1 class="home">Book Pinch</h1>
+<div class="notice">
+  <%= flash[:notice] %>
+</div>
 
 <% if @current_user.present? %>
+
   <div class="welcome"><p>Welcome back <strong><%= @current_user.username %></strong></p></div>
 
   <h2 class="user-home">Faves</h2>
@@ -77,8 +81,5 @@
     <h2>Pinch their books.</h2>
     <br>
     <div><%= link_to "Sign up to get started", new_user_path, :class => "sign-up-msg" %></div>
-    <div class="notice">
-      <%= flash[:notice] %>
-    </div>
   </div>
 <% end %>
