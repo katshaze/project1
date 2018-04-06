@@ -9,7 +9,7 @@ https://bookpinch.herokuapp.com
 
 ## Built with
 * Ruby on Rails
-* HTML & CSS 
+* HTML & CSS
 
 ## Demo
 * Sign up and login
@@ -18,20 +18,27 @@ https://bookpinch.herokuapp.com
 * For your favourites, find users who also loved the book and explore their other favourites
 * Logout
 
-## Schema
-* Users table
-* Books table
-* 'Readings' table (an instance of a user (user_id) tracking a book (book_id) and info on the read status and rating)
+## Schema & Models
+* Users table (a user has many readings)
+* Books table (a book has many readings)
+* 'Readings' table (an instance of a user (user_id) tracking a book (book_id) and info on the read status and rating) (a reading belongs to both a user and a book)
 
-## Models
-* A user has many readings
-* A book has many readings
-* A reading belongs to both a user and a book
+## Cool beans
+* Combined search via Goodreads API and search of existing Book Pinch books database
+* Ability to see other users with similar taste
+
+## Sore bits
+* Haven't touched on responsiveness
+* Read status options aren't in 'select' format
+* Goodreads search results a bit minimal
+* CSS not finished
 
 ## To do
 - [ ] Make it responsive, particularly for mobile
 - [ ] Readings model: combine three read status columns into single column
 - [ ] All books index to include top 50 searched books rather than all books
+- [ ] User homepage - improve the display
+- [ ] Book search results to include description & link to book on Goodreads
 
 ## Licensing
 Dual licensed under the MIT and GPL licenses.
