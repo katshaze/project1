@@ -6,6 +6,5 @@ class PagesController < ApplicationController
       @to_read = @current_user.readings.where('readings.to_read')
       @read = @current_user.readings.where('readings.read')
     end
-    # @title = @title.split(":").first
   end
 end

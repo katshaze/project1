@@ -25,7 +25,7 @@ https://bookpinch.herokuapp.com
 
 ## Cool beans
 * Combined search via Goodreads API and search of existing Book Pinch books database
-* Ability to see other users with similar taste
+* Ability to see other users with similar book taste
 
 ## Sore bits
 * Book search is limited - only gets top hit, can only search by book title

@@ -7,19 +7,6 @@ class ReadingsController < ApplicationController
 
   def new
     @book = Book.find params[:book_id]
-    # raise :hell
-    # if Reading.user.include? @current_user
-    #   @list = @current_user.readings.where('readings.book_id' => @book.id)
-    #   if @list.length > 0
-    #     # raise :hell
-    #     redirect_to book_path(@book.id)
-    #     flash[:error] = "You're already tracking this book. Edit it via your homepage."
-    #   else
-    #     @reading = @current_user.readings.new
-    #   end
-    # else
-    #   @reading = @current_user.readings.new
-    # end
     @reading = @current_user.readings.new
   end
 
@@ -38,9 +25,7 @@ class ReadingsController < ApplicationController
   def update
     book = Book.find params[:book_id]
     reading = @current_user.readings.find params[:id]
-    # @current_user.readings.update :book_id => params[:book_id]
     reading.update :book_id => params[:book_id]
-    # @current_user.readings.update reading_params
     reading.update reading_params
     redirect_to root_path
   end
