@@ -1,6 +1,6 @@
 # Project1 Book Pinch
 
-## What I solved
+## What/why
 A book search and track app where you can separate out your highest rated books, then find other users with similar book loves to get ideas for your next book to pinch.
 
 ## Get it running
@@ -11,7 +11,7 @@ https://bookpinch.herokuapp.com
 * Ruby on Rails
 * HTML & CSS
 
-## Demo
+## Features
 * Sign up and login
 * Search books
 * Add books to your book tracking collection
@@ -23,11 +23,11 @@ https://bookpinch.herokuapp.com
 * Books table (a book has many readings)
 * 'Readings' table (an instance of a user (user_id) tracking a book (book_id) and info on the read status and rating) (a reading belongs to both a user and a book)
 
-## Cool beans
+## Highlands
 * Combined search via Goodreads API and search of existing Book Pinch books database
 * Ability to see other users with similar book taste
 
-## Sore bits
+## Lowlands
 * Book search is limited - only gets top hit, can only search by book title
 * CSS not finished; haven't touched on responsiveness
 * Read status options aren't in 'select' format
@@ -42,6 +42,9 @@ https://bookpinch.herokuapp.com
 
 ## Licensing
 Dual licensed under the MIT and GPL licenses.
+
+## Author
+Katrina Hayes, for General Assembly WDi Project1.
 
 ## Thanks to
 * Joel Turnbull for helping me wrap my head around the schema and model for 'readings'
