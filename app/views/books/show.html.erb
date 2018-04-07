@@ -33,8 +33,8 @@
     <% if @current_user.present? %>
       <% if @current_user.username == 'admin' %>
       <div class="controls">
-        <%= link_to 'Edit book', edit_book_path(@book) %>
-        <%= link_to "Delete book", @book, :method => 'delete', :data => {:confirm => 'Are you sure'} %>
+        <div><%= link_to 'Edit book', edit_book_path(@book) %>
+        <%= link_to "Delete book", @book, :method => 'delete', :data => {:confirm => 'Are you sure'} %></div>
       </div>
       <% end %>
     <% end %>
