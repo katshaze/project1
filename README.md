@@ -1,7 +1,7 @@
 # Project1 Book Pinch
 
 ## What/why
-A book search and track app where you can separate out your highest rated books, then find other users with similar book loves to get ideas for your next book to pinch.
+An app to search books and track them as reading/read/to read. Create a favourites list of your highest rated books, then find other users with similar taste to get ideas for your next book to pinch.
 
 ## Get it running
 * Open in your browser using:
@@ -12,11 +12,9 @@ https://bookpinch.herokuapp.com
 * HTML & CSS
 
 ## Features
-* Sign up and login
-* Search books
-* Add books to your book tracking collection
+* Search books (using the Goodreads API)
+* Sign up to add books to your book tracking collection
 * For your favourites, find users who also loved the book and explore their other favourites
-* Logout
 
 ## Schema & Models
 * Users table (a user has many readings)
@@ -34,11 +32,11 @@ https://bookpinch.herokuapp.com
 * Results displayed from goodreads search are limited - need description & goodreads link at least
 
 ## To do
-- [ ] Make it responsive, particularly for mobile
+- [ ] Make it responsive
 - [ ] Readings model: combine three read status columns into single column
-- [ ] All books index to include top 50 searched books rather than all books
+- [ ] 'All books' page to include a collection of users' favourites rather than all books
 - [ ] User homepage - improve the display
-- [ ] Book search results to include description & link to book on Goodreads
+- [ ] Book search results to include description & link to book on Goodreads if possible
 
 ## Licensing
 Dual licensed under the MIT and GPL licenses.
@@ -48,4 +46,5 @@ Katrina Hayes, for General Assembly WDi Project1.
 
 ## Thanks to
 * Joel Turnbull for helping me wrap my head around the schema and model for 'readings'
-* Joel, John and Theo & my classmates at GA for support and bug fixing.
+* Joel, John and Theo & my classmates at GA for support and bug fixing
+* The Goodreads API
