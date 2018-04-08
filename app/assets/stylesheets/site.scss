@@ -11,9 +11,15 @@
 //   color:grey;
 //   font-style:italic;
 // }
+
+/* VARIABLES */
 $side-panel: rgba(230,18,39,0.85);
 $major-panel: rgba(255,132,0,0.25);
 $jazz-colour: #3f51b5;
+
+.jazz-colour {
+  color: $jazz-colour;
+}
 
 * {
   box-sizing: border-box;
@@ -57,13 +63,7 @@ body {
   flex-grow: 1;
 }
 
-.jazz-colour {
-  color: $jazz-colour;
-}
 
-.controls .jazz-colour a {
-  border: 2px solid $jazz-colour;
-}
 
 .main {
   max-width: 870px;
@@ -93,14 +93,16 @@ h1 {
   margin-bottom: 10px;
 }
 
-h1.form-page {
-  padding-left: 150px;
-}
-
 h2 {
   margin-top: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* BOOKS GALLERIES */
 .gallery-box {
   display: inline-block;
   vertical-align: top;
@@ -145,14 +147,12 @@ p.smaller {
   position: absolute;
 }
 
+/* DIV WITH IMAGE LEFT, CONTENT RIGHT */
 .left, .right {
   padding: 5px;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+/* CONTROLS */
 
 .controls a {
   padding: 3px 5px;
@@ -164,13 +164,24 @@ a {
   margin-top: 14px;
 }
 
+.controls .jazz-colour a {
+  border: 2px solid $jazz-colour;
+}
+
+/* USER GALLERY FAVES - BOOK DEETS */
 .details p {
   margin-top: 0px;
   margin-bottom: 5px;
 }
 
+/* FORMS */
+.form-page {
+  margin: 0 auto;
+  text-align: center;
+}
+
 form {
-  padding-left: 150px;
+  text-align: center;
   font-size: 18px;
   font-family: sans-serif;
   margin-top: 50px;
@@ -181,9 +192,8 @@ label, input, check-box, select {
 }
 
 input {
-  width: 450px;
+  min-width: 300px;
 }
-
 
 .button, button {
   margin-top: 10px;
@@ -197,6 +207,11 @@ input {
   margin-bottom: 20px;
 }
 
+.check-box {
+  width: 18px;
+}
+
+/* FLASH NOTICES */
 .notice {
   text-align: right;
   color: #3db36e;
@@ -215,4 +230,21 @@ input {
 		font-size: 10px;
     padding: 15px 5px;
 	}
+}
+
+@media only screen and (max-width:450px){ /*when book index books can't fit 3 to row */
+  .thumb {
+    max-height: 111px;
+  }
+  .empty-thumb {
+    width: 74px;
+    height: 114px;
+  }
+  .baby-thumb {
+    max-height: 111px;
+  }
+  .empty-thumb-baby {
+    width: 74px;
+    height: 114px;
+  }
 }

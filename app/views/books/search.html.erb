@@ -1,11 +1,12 @@
+<div class="form-page">
+  <h1>Search for a book</h1>
 
-<h1 class="form-page">Search for a book</h1>
-
-<form action="/books/result">
-  <label>Enter a book title:</label>
-  <input type="text" name="book_title" placeholder="e.g. Kafka on the Shore" required autofocus=true><br>
-  <button>Search</button>
-  <div class="stop-right-there">
-    <%= flash[:notice] %>
-  </div>
-</form>
+  <form action="/books/result">
+    <label>Enter a book title:</label>
+    <input type="text" name="book_title" placeholder="e.g. Kafka on the Shore" required autofocus=true><br>
+    <button>Search</button>
+    <div class="stop-right-there">
+      <%= flash[:notice] %>
+    </div>
+  </form>
+</div>

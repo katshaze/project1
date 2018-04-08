@@ -1,9 +1,14 @@
-<h1 class="form-page">Edit account</h1>
+<div class="form-page">
 
-<%= render :partial => 'form' %>
 
-<div class="delete-account">
-  <p>Or, want to delete your account altogether?  
-  <%= link_to "Delete account", user_path, :method => 'delete', :class => 'button', :data => {:confirm => 'Are you sure'} %></p>
-  <p>We're sorry to see you go.</p>
+  <h1>Edit account</h1>
+
+  <%= render :partial => 'form' %>
+
+  <div class="delete-account">
+    <p>Or, want to delete your account altogether?</p>
+    <div><%= link_to "Delete account", user_path, :method => 'delete', :class => 'button', :data => {:confirm => 'Are you sure'} %></div>
+    <p>We're sorry to see you go.</p>
+  </div>
+
 </div>

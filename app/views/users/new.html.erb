@@ -1,14 +1,17 @@
-<h1 class="form-page">Sign Up</h1>
+<div class="form-page">
+  <h1 class="form-page">Sign Up</h1>
 
-<% if @user.errors.any? %>
-  <div class="error">
-    Oops!
-    <ol>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg.capitalize %></li>
-      <% end %>
-    </ol>
-  </div>
-<% end %>
+  <% if @user.errors.any? %>
+    <div class="error">
+      Oops!
+      <ol>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg.capitalize %></li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
 
-<%= render :partial => 'form' %>
+  <%= render :partial => 'form' %>
+
+</div>

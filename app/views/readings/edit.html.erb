@@ -1,20 +1,23 @@
-<h1><%= @reading.book.title %></h1>
+<div class="form-page">
+  <h1><%= @reading.book.title %></h1>
 
-<%= form_for [@book, @reading], url: book_reading_path(@book), method: :patch do |f| %>
-<%= f.label :to_read %>
-<%= f.check_box :to_read %><br>
-<%= f.label :reading %>
-<%= f.check_box :reading %><br>
-<%= f.label :read %>
-<%= f.check_box :read %><br>
+  <%= form_for [@book, @reading], url: book_reading_path(@book), method: :patch do |f| %>
+  <%= f.label :to_read %>
+  <%= f.check_box :to_read, :class => "check-box" %><br>
+  <%= f.label :reading %>
+  <%= f.check_box :reading, :class => "check-box" %><br>
+  <%= f.label :read %>
+  <%= f.check_box :read, :class => "check-box" %><br>
 
-<%= f.label :stars %>
-<%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %><br>
+  <%= f.label :stars %>
+  <%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %><br>
 
-<%= f.submit "Update", :class => "button"  %>
-<% end %>
+  <%= f.submit "Update", :class => "button"  %>
+  <% end %>
 
-<div class="delete-entry">
-  <p>Alternatively, remove this book from the books you're tracking.</p>
-  <%= link_to "Remove book", book_reading_path, :method => 'delete', :data => {:confirm => 'Are you sure'}, :class => 'button delete-entry' %>
+  <div class="delete-entry">
+    <p>Alternatively, remove this book from the books you're tracking.</p>
+    <%= link_to "Remove book", book_reading_path, :method => 'delete', :data => {:confirm => 'Are you sure'}, :class => 'button delete-entry' %>
+  </div>
+
 </div>

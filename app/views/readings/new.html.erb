@@ -1,15 +1,17 @@
-<h1><%= @book.title %></h1>
+<div class="form-page">
+  <h1><%= @book.title %></h1>
 
-<%= form_for [@reading], url: book_readings_path(@book), method: :post do |f| %>
-<%= f.label :to_read %>
-<%= f.check_box :to_read %><br>
-<%= f.label :reading %>
-<%= f.check_box :reading %><br>
-<%= f.label :read %>
-<%= f.check_box :read %><br>
+  <%= form_for [@reading], url: book_readings_path(@book), method: :post do |f| %>
+  <%= f.label :to_read %>
+  <%= f.check_box :to_read, :class => "check-box" %><br>
+  <%= f.label :reading %>
+  <%= f.check_box :reading, :class => "check-box" %><br>
+  <%= f.label :read %>
+  <%= f.check_box :read, :class => "check-box" %><br>
 
-<%= f.label :stars %>
-<%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %><br>
+  <%= f.label :stars %>
+  <%= f.select :stars, ['*', '**', '***', '****', '*****'], :include_blank => true %><br>
 
-<%= f.submit "Add", :class => "button" %>
-<% end %>
+  <%= f.submit "Add", :class => "button" %>
+  <% end %>
+</div>
