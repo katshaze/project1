@@ -45,10 +45,18 @@ div.search a {
   margin-bottom: 5px;
 }
 
-.book-search .button {
+.book-search .button, #get_description {
   color: $jazz-colour;
   border: 2px solid $jazz-colour;
   font-size: 20px;
   padding: 5px;
   font-family: monospace;
+}
+
+#get_description {
+  color: black;
+  border: 2px solid black;
+  font-size: 14px;
+  background-color: inherit;
+  font-weight: bold;
 }
