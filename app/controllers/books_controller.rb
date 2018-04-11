@@ -20,24 +20,30 @@ class BooksController < ApplicationController
       @title = gr_data['results']['work']['best_book']['title']
       @author = gr_data['results']['work']['best_book']['author']['name']
       @book_cover = gr_data['results']['work']['best_book']['image_url']
-      @unique_id = gr_data['results']['work']['best_book']['id']
+      @gr_book_id = gr_data['results']['work']['best_book']['id']
     else
       @title = gr_data['results']['work'][0]['best_book']['title']
       @author = gr_data['results']['work'][0]['best_book']['author']['name']
       @book_cover = gr_data['results']['work'][0]['best_book']['image_url']
-      @unique_id = gr_data['results']['work'][0]['best_book']['id']
+      @gr_book_id = gr_data['results']['work'][0]['best_book']['id']
     end
+
+    book_id_url = "https://www.goodreads.com/book/show.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&id=#{@gr_book_id}"
+    gr_data2 = HTTParty.get book_id_url
+    gr_data2 = gr_data2.parsed_response['GoodreadsResponse']['book']
+    @description = gr_data2["description"]
+    @gr_link = gr_data2["link"]
+
     list = Book.where('books.title' => @title)
     if list.length > 0
       redirect_to book_path(list[0].id)
     else
       unless @book_cover.include? "nophoto"
-        @book = Book.create(:title => @title, :author => @author, :image => @book_cover)
+        @book = Book.create(:title => @title, :author => @author, :image => @book_cover, :link => @gr_link, :description => @description)
       else
-        @book = Book.create(:title => @title, :author => @author)
+        @book = Book.create(:title => @title, :author => @author, :link => @gr_link, :description => @description)
       end
     end
-    # raise :hell
   end
 
   def show
