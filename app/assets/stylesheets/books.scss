@@ -68,3 +68,15 @@ div.search a {
 .visible {
   visibility: visible;
 }
+
+div.simple-link-button {
+  display: inline-block;
+  border: 2px solid black;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+.right div {
+  // margin-bottom: 10px;
+  // margin-top: 14px;
+}

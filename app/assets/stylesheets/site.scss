@@ -35,7 +35,6 @@ body {
   padding: 0;
   color: black;
   min-height: 100vh;
-
 }
 
 .container {
@@ -62,8 +61,6 @@ body {
   padding: 15px;
   flex-grow: 1;
 }
-
-
 
 .main {
   max-width: 870px;
@@ -156,15 +153,15 @@ p.smaller {
 
 .controls a {
   padding: 3px 5px;
-  border: 2px solid black;
+
   margin-right: 6px;
 }
 
 .controls div {
-  margin-top: 14px;
+  // margin-top: 14px;
 }
 
-.controls .jazz-colour a {
+.controls div.jazz-colour {
   border: 2px solid $jazz-colour;
 }
 
