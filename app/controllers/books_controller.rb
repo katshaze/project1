@@ -32,6 +32,7 @@ class BooksController < ApplicationController
     gr_data2 = HTTParty.get book_id_url
     gr_data2 = gr_data2.parsed_response['GoodreadsResponse']['book']
     @description = gr_data2["description"]
+    # raise :hell
     @gr_link = gr_data2["link"]
 
     list = Book.where('books.title' => @title)

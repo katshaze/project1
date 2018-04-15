@@ -13,7 +13,7 @@
 #
 
 class Book < ApplicationRecord
-  has_many :readings
+  has_many :readings, :dependent => :destroy # delete a book, also delete the reading iwth that book_id
 
   # validates :unique_id, :uniqueness => true
 end
