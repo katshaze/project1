@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/books/search' => 'books#search'
   post '/books/search' => 'books#import'
   get '/books/result' => 'books#result'
-  post '/books/result' => 'books#import_track'
+  # post '/books/result' => 'books#import_track'
   resources :books do
     resources :readings, :except => [:show]
   end
