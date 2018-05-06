@@ -1,11 +1,12 @@
-# Project1 Book Pinch
+# Book Pinch
 
 ## What/why
-An app to search books and track them as reading/read/to read. Create a favourites list of your highest rated books, then find other users with similar taste to get ideas for your next book to pinch.
+An app to search books and track them as reading/read/to read. Create a favourites list of your highest rated books, find other users whose favourites lists contain some of the same books, and get ideas for your next book to pinch.
+
+![BookPinch Screenshot](app/assets/images/bookpinch.png)
 
 ## Get it running
-* Open in your browser using:
-https://bookpinch.herokuapp.com
+* Open it up in your browser [here]('https://bookpinch.herokuapp.com')
 
 ## Built with
 * Ruby on Rails
@@ -23,23 +24,21 @@ https://bookpinch.herokuapp.com
 
 ## Highlands
 * Combined search via Goodreads API and search of existing Book Pinch books database
-* Ability to see other users with similar book taste
+* Ability to see other users with similar book tastes
 
 ## Lowlands
 * Book search is limited - only gets top hit, can only search by book title
-* CSS not finished; haven't touched on responsiveness
+* Not as responsiveness as I'd like
 * Read status options aren't in 'select' format
-* Results displayed from goodreads search are limited - need description & goodreads link at least
 
 ## To do
 - [ ] Make it responsive
 - [ ] Readings model: combine three read status columns into single column
 - [ ] 'All books' page to include a collection of users' favourites rather than all books
 - [ ] User homepage - improve the display
-- [ ] Book search results to include description & link to book on Goodreads if possible
 
 ## Licensing
-Dual licensed under the MIT and GPL licenses.
+Licensed under MIT.
 
 ## Author
 Katrina Hayes, for General Assembly WDi Project1.
@@ -47,4 +46,4 @@ Katrina Hayes, for General Assembly WDi Project1.
 ## Thanks to
 * Joel Turnbull for helping me wrap my head around the schema and model for 'readings'
 * Joel, John and Theo & my classmates at GA for support and bug fixing
-* The Goodreads API
+* the Goodreads API
