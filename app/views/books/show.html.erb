@@ -31,7 +31,7 @@
       </div>
     </div>
     <% if @current_user.present? %>
-      <% if @current_user.username == 'admin' %>
+      <% if @current_user.username == 'admin' || 'katshaze' %>
       <div class="admin-controls">
         <div class="simple-link-button"><%= link_to 'Edit book', edit_book_path(@book) %></div>
         <div class="simple-link-button"><%= link_to "Delete book", @book, :method => 'delete', :data => {:confirm => 'Are you sure'} %></div>

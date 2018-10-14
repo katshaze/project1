@@ -1,17 +1,19 @@
 <% status.each do |reading| %>
-  <div class="gallery-box">
-    <% if reading.book.image.present? %>
-      <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb', :title => reading.book.title), book_path(reading.book.id) %></div>
-      <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-    <% else %>
-      <div class="empty-thumb-baby">
-        <div class="empty-thumb-title">
-          <p><%= link_to reading.book.title.split(/[:(]/).first, book_path(reading.book.id) %></p>
-          <p class="smaller"><%= reading.book.author %></p>
-        </div>
-        <%= image_tag 'empty-thumb3.png', :class => 'empty-thumb-baby' %>
+  <% if reading.book %>
+    <div class="gallery-box">
+      <% if reading.book.image.present? %>
+        <div><%= link_to image_tag(reading.book.image, :alt => reading.book.title, :class => 'baby-thumb', :title => reading.book.title), book_path(reading.book.id) %></div>
         <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
-      </div>
-    <% end %>
-  </div>
+      <% else %>
+        <div class="empty-thumb-baby">
+          <div class="empty-thumb-title">
+            <p><%= link_to reading.book.title.split(/[:(]/).first, book_path(reading.book.id) %></p>
+            <p class="smaller"><%= reading.book.author %></p>
+          </div>
+          <%= image_tag 'empty-thumb3.png', :class => 'empty-thumb-baby' %>
+          <%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

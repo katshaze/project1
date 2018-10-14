@@ -15,6 +15,7 @@
   <% else %>
     <p class="jazz-colour"><strong>Click on 'Other Lovers' to find other users who also loved that book, and explore their favourites lists.</strong></p>
     <% @faves.each do |reading| %>
+      <% if reading.book %>
         <div class="gallery-box">
           <div class="flex-row">
             <div class="left">
@@ -43,6 +44,7 @@
             </div>
           </div>
         </div>
+      <% end %>
     <% end %>
   <% end %>
 
@@ -70,9 +72,11 @@
   <h2 class="user-home">All books</h2>
   <hr>
   <% @current_user.readings.each do |reading| %>
-    <ul>
-      <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
-    </ul>
+    <% if reading.book %>
+      <ul>
+        <li><%= link_to reading.book.title, edit_book_reading_path(reading.book.id, reading) %></li>
+      </ul>
+    <% end %>
   <% end %>
 <% else %>
   <div class="home-msg">

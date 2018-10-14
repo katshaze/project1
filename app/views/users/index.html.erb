@@ -1,6 +1,6 @@
 <div class="user-index">
   <% if @current_user.present? %>
-    <% if @current_user.username == 'admin' %>
+    <% if @current_user.username == 'admin' || 'katshaze' %>
       <h2>All users</h2>
       <% @users.each do |user| %>
         <ul>

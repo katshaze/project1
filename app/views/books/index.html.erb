@@ -31,7 +31,7 @@
   </div>
 
   <% if @current_user.present? %>
-    <% if @current_user.username == 'admin' %>
+    <% if @current_user.username == 'admin' || 'katshaze' %>
       <div class="controls"><%= link_to 'Add a book to the database', new_book_path %></div>
     <% end %>
   <% end %>
