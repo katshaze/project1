@@ -42,6 +42,34 @@ body {
   min-height: 100vh;
 }
 
+@media only screen and (max-width:600px){
+  .container {
+    flex-direction: column;
+  }
+
+  .side-panel, .major-panel {
+    width: 100% !important;
+  }
+
+  .side-panel {
+    font-size: 18px !important;
+    flex-grow: 0 !important;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav a {
+    padding: 3px 0;
+  }
+
+  nav .nav__sideA a {
+    text-align: left;
+  }
+}
+
 .side-panel {
   width: 18%;
   min-height: 100%;
@@ -157,10 +185,6 @@ p.smaller {
   margin-right: 6px;
 }
 
-.controls div {
-  // margin-top: 14px;
-}
-
 .controls div.jazz-colour {
   border: 2px solid $jazz-colour;
 }
@@ -195,9 +219,9 @@ input {
 .button, button {
   margin-top: 10px;
   font-size: 16px;
-  color: crimson;
+  color: black;
   padding: 3px;
-  border: 2px solid crimson;
+  border: 2px solid black;
   cursor: pointer;
   font-size: 16px;
   font-family: sans-serif;
@@ -224,7 +248,7 @@ input {
 /* MEDIA QUERIES */
 @media only screen and (max-width:730px){ /*when nav starts flowing over lines */
 	.side-panel {
-		font-size: 10px;
+		font-size: 15px;
     padding: 15px 5px;
 	}
 }

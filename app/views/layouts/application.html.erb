@@ -13,20 +13,24 @@
     <div class="container">
       <div class="side-panel">
         <nav>
-          <% unless @current_user.present? %>
-            <%= link_to 'Home', root_path %>
-          <% else %>
-            <%= link_to 'My books', root_path %>
-          <% end %>
-          <%= link_to 'Find book', books_path %>
-          <% if @current_user.present? %>
-            <%= link_to "Edit account", edit_user_path(@current_user) %>
-            <%= link_to "Log out, #{@current_user.username}", login_path, :method => 'delete' %>
-            <!-- above, in ruby land therefore use interpoloation inside, can't nest ruby tags  -->
-          <% else %>
-            <%= link_to 'Sign Up', new_user_path %>
-            <%= link_to 'Log in', login_path %>
-          <% end %>
+          <div class="nav__sideA">
+            <% unless @current_user.present? %>
+              <%= link_to 'Home', root_path %>
+            <% else %>
+              <%= link_to 'My books', root_path %>
+            <% end %>
+            <%= link_to 'Find book', books_path %>
+          </div>
+          <div class="nav__sideB">
+            <% if @current_user.present? %>
+              <%= link_to "Edit account", edit_user_path(@current_user) %>
+              <%= link_to "Log out, #{@current_user.username}", login_path, :method => 'delete' %>
+              <!-- above, in ruby land therefore use interpoloation inside, can't nest ruby tags  -->
+            <% else %>
+              <%= link_to 'Sign Up', new_user_path %>
+              <%= link_to 'Log in', login_path %>
+            <% end %>
+          </div>
         </nav>
       </div>
       <div class="major-panel">
