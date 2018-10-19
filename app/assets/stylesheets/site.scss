@@ -129,9 +129,11 @@ a {
 
 /* BOOKS GALLERIES */
 .gallery-box {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   vertical-align: top;
   margin-bottom: 15px;
+  padding: 5px;
 }
 
 .thumb {
@@ -139,10 +141,11 @@ a {
 }
 
 .empty-thumb {
+  border: 1px solid black;
   height: 151px;
   width: 98px;
   display: inline-block;
-  postion: relative;
+  position: relative;
 }
 
 .empty-thumb-title {
@@ -258,6 +261,7 @@ input {
     max-height: 108px;
   }
   .empty-thumb {
+    border: 1px solid black;
     width: 72px;
     height: 108px;
   }
@@ -265,6 +269,7 @@ input {
     max-height: 108px;
   }
   .empty-thumb-baby {
+    border: 1px solid black;
     width: 72px;
     height: 108px;
   }

@@ -9,7 +9,7 @@
   </div>
 
 
-  <div class="gallery">
+  <div class="gallery-div">
     <% @books.each do |book| %>
       <div class="gallery-box">
         <a href="/books/<%= book.id %>" title="<%= book.title %>">
@@ -22,7 +22,6 @@
                 <p><%= book.title.split(":").first %></p>
                 <p class="smaller"><%= book.author %></p>
               </div>
-              <%= image_tag 'empty-thumb3.png', :class => 'empty-thumb' %>
             </div>
           <% end %>
         </a>

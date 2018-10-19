@@ -14,6 +14,7 @@
     <p class="jazz-colour"><strong>For books you love, you can find other users with that same book in their faves list.</strong></p>
   <% else %>
     <p class="jazz-colour"><strong>Click on 'Other Lovers' to find other users who also loved that book, and explore their favourites lists.</strong></p>
+    <div class="gallery-div">
     <% @faves.each do |reading| %>
       <% if reading.book %>
         <div class="gallery-box">
@@ -27,7 +28,6 @@
                     <p><%= link_to reading.book.title.split(/[:(]/).first, book_path(reading.book.id) %></p>
                     <p class="smaller"><%= reading.book.author %></p>
                   </div>
-                  <%= image_tag 'empty-thumb3.png', :class => 'empty-thumb-baby' %>
                 </div>
               <% end %>
             </div>
@@ -35,7 +35,7 @@
               <div class="details">
                 <p><strong><%= link_to reading.book.title, book_path(reading.book.id) %></strong><br>
                 <%= reading.book.author %></p>
-                <p>Rating: <%= reading.stars %></p>
+                <p>Your rating: <%= reading.stars %></p>
                 <div class="controls">
                   <div class="simple-link-button"><%= link_to 'Edit', edit_book_reading_path(reading.book.id, reading) %></div>
                   <div class="simple-link-button"><%= link_to 'Other lovers', book_readings_path(reading.book.id) %></div>
@@ -46,7 +46,9 @@
         </div>
       <% end %>
     <% end %>
+    </div>
   <% end %>
+ 
 
   <h2 class="user-home">Reading</h2>
   <hr>
