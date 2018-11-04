@@ -44,8 +44,8 @@
     <h3><%= link_to ">> View on Goodreads", @book.link, target: '_blank' %></h3>
   <% end %>
   <h3><a href="#" id="preview" target="_blank">>> Preview in Google books</a></h3>
-  <% if @book.description %>
-    <button id="get_description" value="@book.title">View description</button>
+  <% if @book.description.present? %>
+    <button id="toggle_description" value="@book.title">View description</button>
     <div id="book_description" class="hidden"><p><%== @book.description %></p></div>
   <% end %>
 </div>

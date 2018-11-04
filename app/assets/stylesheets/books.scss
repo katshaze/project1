@@ -45,7 +45,7 @@ div.search a {
   margin-bottom: 5px;
 }
 
-.book-search .button, #get_description {
+.book-search .button, #toggle_description {
   color: $jazz-colour;
   border: 2px solid $jazz-colour;
   font-size: 20px;
@@ -53,7 +53,7 @@ div.search a {
   font-family: monospace;
 }
 
-#get_description {
+#toggle_description {
   color: black;
   border: 2px solid black;
   font-size: 14px;

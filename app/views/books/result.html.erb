@@ -1,6 +1,5 @@
 <div class="search-results">
   <h2>Top hit:</h2>
-
   <div class="flex-row">
     <div class="left">
       <img src="<%= @book_cover %>" alt="Book cover of <%= @title %>">
@@ -21,9 +20,9 @@
   <div class="details">
     <h3><a href="<%= @gr_link %>" target="_blank">>> View on Goodreads</a></h3>
     <h3><a href="#" id="preview" target="_blank">>> Preview in Google books</a></h3>
-    <button id="get_description" value="@title">View description</button>
-    <div id="book_description" class="hidden"><p><%== @description %></p></div>
+    <% if @book.description.present? %>
+      <button id="toggle_description" value="@title">View description</button>
+      <div id="book_description" class="hidden"><p><%== @description %></p></div>
+    <% end %>
   </div>
-
-
 </div>

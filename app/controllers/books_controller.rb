@@ -27,11 +27,17 @@ class BooksController < ApplicationController
       @book_cover = gr_data['results']['work'][0]['best_book']['image_url']
       @gr_book_id = gr_data['results']['work'][0]['best_book']['id']
     end
+    @gr_data = gr_data
 
     book_id_url = "https://www.goodreads.com/book/show.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&id=#{@gr_book_id}"
     gr_data2 = HTTParty.get book_id_url
     gr_data2 = gr_data2.parsed_response['GoodreadsResponse']['book']
-    @description = gr_data2["description"]
+    language = gr_data2["language_code"]
+    if language === 'eng'
+      @description = gr_data2["description"]
+    else 
+      @description = nil
+    end
     @gr_link = gr_data2["link"]
 
     list = Book.where('books.title' => @title)
@@ -44,6 +50,7 @@ class BooksController < ApplicationController
         @book = Book.create(:title => @title, :author => @author, :link => @gr_link, :description => @description)
       end
     end
+    @gr_data2 = gr_data2
   end
 
   def show
