@@ -2,12 +2,15 @@ class BooksController < ApplicationController
   def index
     @books = Book.all.order(:title)
     # could also order by title, :title, can also just say e.g. Book.order(:title)
+    # TODO: display an 'editor's roatating selection' of the best books rather than all of them alphabetically 
   end
 
   def search
+    # TODO: serach by author as well as by title
   end
 
   def result
+    # TODO: show additional two titles, then a 'show me more titles' button to get next three
     book_title = params[:book_title]
     # below: check if book title searched is already in database of books.
     search_url = "https://www.goodreads.com/search.xml?key=RBr5ZI7tQPC7cDN9K2oa3A&q=#{book_title}"
