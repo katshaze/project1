@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all.order(:title)
+    @books = Book.order("RANDOM()")
+    @books = @books[0, 60]
     # could also order by title, :title, can also just say e.g. Book.order(:title)
-    # TODO: display an 'editor's roatating selection' of the best books rather than all of them alphabetically 
   end
 
   def search
-    # TODO: serach by author as well as by title
+    # TODO: search by author as well as by title
   end
 
   def result

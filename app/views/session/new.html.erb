@@ -4,12 +4,12 @@
   <div class="error">
     <%= flash[:error] %>
   </div>
-  <!-- above: only shows up if it's the second time through and the first time there was an error with login  -->
+  <%# above: only shows up if its the second time through and the first time there was an error with login %>
 
   <%= form_tag login_path %>
-  <!-- # no form helper for form_tag so have to create labels etc. ourselves -->
-    <%= label_tag :email %><br>
-    <%= email_field_tag :email %><br>
+  <%# no form helper for form_tag so have to create labels etc. ourselves %>
+    <%= label_tag :email_or_username %><br>
+    <%= text_field_tag :email_or_username %><br>
     <%= label_tag :password %><br>
     <%= password_field_tag :password %><br>
 
